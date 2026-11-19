@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="page-header">
+        <h1>My Budget Tracker</h1>
+        <p class="tagline">Track your income and expenses in one place.</p>
+    </header>
+
+    <main>
+        <section id="add-expense-section" class="panel">
+            <h2>Add Expense</h2>
+
+            <div class="field-group">
+                <label for="expense-name">Expense Name:</label>
+                <input id="expense-name" type="text" placeholder="e.g., Groceries">
+            </div>
+
+            <div class="field-group">
+                <label for="expense-amount">Amount:</label>
+                <input id="expense-amount" type="number" placeholder="e.g., 25">
+            </div>
+
+            <div class="field-group">
+                <label for="expense-category">Category:</label>
+                <input id="expense-category" type="text" placeholder="e.g., Food">
+            </div>
+        </section>
+
+        <section id="expenses-section" class="panel">
+            <h2 id="expenses-heading">Your Expenses</h2>
+            <p class="empty-state">No expenses yet.</p>
+        </section>
+    </main>
+
+</body>
+</html>
