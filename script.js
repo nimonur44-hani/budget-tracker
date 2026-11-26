@@ -1,37 +1,110 @@
 
 console.log("Welcome to SpendWise!");
 
-// 1. Collect user input
-let budget = Number(prompt("Enter your monthly budget (KSh):"));
-let expenses = Number(prompt("Enter your total expenses (KSh):"));
+// 1. Store monthly budget
+let budget = 0;
 
-const currency = "KSh";
+// 2. Store multiple expenses using an array
+let expenses = [];
 
-// 2. Function to calculate balance
-function calculateBalance(budget, expenses) {
-    return budget - expenses;
+// 3. Calculate total expenses using a loop
+function calculateTotalExpenses() {
+    let total = 0;
+
+    for (let i = 0; i < expenses.length; i++) {
+        total += expenses[i].amount;
+    }
+
+    return total;
 }
 
-// 3. Function to display budget information
-function displayBudgetSummary(budget, expenses, balance) {
-    console.log("Monthly Budget: " + currency + " " + budget);
-    console.log("Total Expenses: " + currency + " " + expenses);
-    console.log("Remaining Balance: " + currency + " " + balance);
+// 4. Calculate remaining balance
+function calculateBalance() {
+    return budget - calculateTotalExpenses();
 }
 
-// 4. Validate inputs
-if (
-    !Number.isFinite(budget) ||
-    !Number.isFinite(expenses) ||
-    budget <= 0 ||
-    expenses < 0
-) {
-    console.log("Invalid input. Please enter valid amounts.");
-} else {
-    // 5. Calculate balance
-    let balance = calculateBalance(budget, expenses);
+// 5. Display budget information on the webpage
+function updateDashboard() {
+    const total = calculateTotalExpenses();
+    const balance = calculateBalance();
 
-    // 6. Display results
-    displayBudgetSummary(budget, expenses, balance);
+    document.getElementById("budget").textContent =
+        "KSh " + budget.toLocaleString();
+
+    document.getElementById("totalExpenses").textContent =
+        "KSh " + total.toLocaleString();
+
+    document.getElementById("balance").textContent =
+        "KSh " + balance.toLocaleString();
+
+    // Decision making using conditionals
+    const status = document.getElementById("budgetStatus");
+
+    if (balance < 0) {
+        status.textContent = "Warning! You have exceeded your budget.";
+    } else if (total >= budget * 0.8) {
+        status.textContent = "Careful! You are approaching your budget limit.";
+    } else {
+        status.textContent = "Good job! You are within your budget.";
+    }
+
+    // Display expense records using a loop
+    const expenseList = document.getElementById("expenseList");
+    expenseList.innerHTML = "";
+
+    for (let i = 0; i < expenses.length; i++) {
+        const item = document.createElement("li");
+
+        item.textContent =
+            expenses[i].name + " - KSh " +
+            expenses[i].amount.toLocaleString();
+
+        const deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+
+        deleteButton.addEventListener("click", function () {
+            expenses.splice(i, 1);
+            updateDashboard();
+        });
+
+        item.appendChild(deleteButton);
+        expenseList.appendChild(item);
+    }
 }
 
+// 6. Handle budget form submission
+document.getElementById("budgetForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const budgetInput = Number(document.getElementById("budgetInput").value);
+
+    if (!Number.isFinite(budgetInput) || budgetInput <= 0) {
+        alert("Please enter a valid monthly budget.");
+        return;
+    }
+
+    budget = budgetInput;
+    updateDashboard();
+});
+
+// 7. Handle adding expenses
+document.getElementById("expenseForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("expenseName").value.trim();
+    const amount = Number(document.getElementById("expenseAmount").value);
+
+    if (name === "" || !Number.isFinite(amount) || amount <= 0) {
+        alert("Please enter a valid expense name and amount.");
+        return;
+    }
+
+    expenses.push({
+        name: name,
+        amount: amount
+    });
+
+    document.getElementById("expenseForm").reset();
+
+    updateDashboard();
+});
