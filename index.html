@@ -4,130 +4,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Budget Tracker</title>
+    <title>SpendWise Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png"
-             alt="Budget Tracker Logo" width="60">
+    <div class="dashboard">
 
-        <h1>My Budget Tracker</h1>
-        <p>Track your income and expenses in one place.</p>
-    </header>
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>SpendWise</h2>
+            </div>
 
-    <!-- Add Expense Form -->
-    <section class="add-expense-section">
+            <nav class="navigation">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Transactions</a>
+                <a href="#">Budgets</a>
+                <a href="#">Reports</a>
+                <a href="#">Settings</a>
+            </nav>
 
-        <h2>Add Expense</h2>
+            <div class="sidebar-footer">
+                <p>Manage your money wisely.</p>
+            </div>
+        </aside>
 
-        <form>
-            <label for="expense-name">Expense Name:</label>
-            <input type="text" id="expense-name"
-                   placeholder="Enter expense name">
+        <!-- Main Content -->
+        <main class="main-content">
 
-            <label for="expense-amount">Amount:</label>
-            <input type="number" id="expense-amount"
-                   placeholder="Enter amount">
+            <!-- Header -->
+            <header class="top-header">
+                <div>
+                    <h1>Welcome to SpendWise</h1>
+                    <p>Here's your financial overview.</p>
+                </div>
 
-            <label for="expense-category">Category:</label>
-            <select id="expense-category">
-                <option>Food</option>
-                <option>Transport</option>
-                <option>Rent</option>
-                <option>Entertainment</option>
-                <option>Other</option>
-            </select>
+                <div class="profile">
+                    <span>November 2026</span>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                         alt="User profile">
+                </div>
+            </header>
 
-            <label for="expense-date">Date:</label>
-            <input type="date" id="expense-date">
+            <!-- Summary Cards -->
+            <section class="summary-section">
 
-            <button type="button">Add Expense</button>
-        </form>
+                <div class="summary-card">
+                    <h3>Total Balance</h3>
+                    <h2>KSh 45,000</h2>
+                    <p>Available balance</p>
+                </div>
 
-    </section>
+                <div class="summary-card">
+                    <h3>Total Income</h3>
+                    <h2>KSh 60,000</h2>
+                    <p>Monthly income</p>
+                </div>
 
-    <!-- Expenses Table -->
-    <section class="expenses-section">
+                <div class="summary-card">
+                    <h3>Total Expenses</h3>
+                    <h2>KSh 15,000</h2>
+                    <p>Monthly spending</p>
+                </div>
 
-        <h2>My Expenses</h2>
+            </section>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Category</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
+            <!-- Expense Categories -->
+            <section class="categories-section">
 
-            <tbody>
-                <tr>
-                    <td>Lunch</td>
-                    <td>KSh 300</td>
-                    <td>Food</td>
-                    <td>2026-11-15</td>
-                </tr>
+                <h2>Expense Categories</h2>
 
-                <tr>
-                    <td>Bus Fare</td>
-                    <td>KSh 150</td>
-                    <td>Transport</td>
-                    <td>2026-11-16</td>
-                </tr>
+                <div class="category-grid">
 
-                <tr>
-                    <td>House Rent</td>
-                    <td>KSh 5,000</td>
-                    <td>Rent</td>
-                    <td>2026-11-17</td>
-                </tr>
+                    <article class="category-card" tabindex="0">
+                        <h3>Food</h3>
+                        <p>KSh 4,000</p>
+                        <span>Monthly spending</span>
+                    </article>
 
-                <tr>
-                    <td>Movie</td>
-                    <td>KSh 500</td>
-                    <td>Entertainment</td>
-                    <td>2026-11-18</td>
-                </tr>
+                    <article class="category-card" tabindex="0">
+                        <h3>Transport</h3>
+                        <p>KSh 2,000</p>
+                        <span>Monthly spending</span>
+                    </article>
 
-                <tr>
-                    <td>Shopping</td>
-                    <td>KSh 1,000</td>
-                    <td>Other</td>
-                    <td>2026-11-19</td>
-                </tr>
-            </tbody>
-        </table>
+                    <article class="category-card" tabindex="0">
+                        <h3>Rent</h3>
+                        <p>KSh 5,000</p>
+                        <span>Monthly spending</span>
+                    </article>
 
-    </section>
+                    <article class="category-card" tabindex="0">
+                        <h3>Entertainment</h3>
+                        <p>KSh 1,000</p>
+                        <span>Monthly spending</span>
+                    </article>
 
-    <!-- How to Use Tracker -->
-    <details>
-        <summary>How to use this tracker</summary>
+                    <article class="category-card" tabindex="0">
+                        <h3>Savings</h3>
+                        <p>KSh 2,000</p>
+                        <span>Monthly savings</span>
+                    </article>
 
-        <p>
-            Enter your expense name, amount, category and date
-            in the form above. Click the Add Expense button.
-            Your expenses are displayed in the table below.
-        </p>
-    </details>
+                    <article class="category-card" tabindex="0">
+                        <h3>Utilities</h3>
+                        <p>KSh 1,000</p>
+                        <span>Monthly spending</span>
+                    </article>
 
-    <!-- YouTube Video -->
-    <section class="video-section">
-        <h2>Budgeting Tips</h2>
+                </div>
 
-        <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/2Vv-BfVoq4g"
-            title="Budgeting Tips Video"
-            frameborder="0"
-            allowfullscreen>
-        </iframe>
-    </section>
+            </section>
+
+            <!-- Recent Transactions -->
+            <section class="transactions-section">
+
+                <h2>Recent Transactions</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Lunch</td>
+                            <td>Food</td>
+                            <td>2026-11-15</td>
+                            <td>KSh 300</td>
+                        </tr>
+
+                        <tr>
+                            <td>Bus Fare</td>
+                            <td>Transport</td>
+                            <td>2026-11-16</td>
+                            <td>KSh 150</td>
+                        </tr>
+
+                        <tr>
+                            <td>House Rent</td>
+                            <td>Rent</td>
+                            <td>2026-11-17</td>
+                            <td>KSh 5,000</td>
+                        </tr>
+
+                        <tr>
+                            <td>Movie</td>
+                            <td>Entertainment</td>
+                            <td>2026-11-18</td>
+                            <td>KSh 500</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </section>
+
+            <footer>
+                <p>&copy; 2026 SpendWise. Manage your money wisely.</p>
+            </footer>
+
+        </main>
+
+    </div>
 
 </body>
 </html>
+
