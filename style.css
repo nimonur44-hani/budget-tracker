@@ -1,105 +1,138 @@
 
-/* General styling */
+/* =================================
+   1. GOOGLE FONTS
+================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap');
+
+/* =================================
+   2. COLOR PALETTE
+================================= */
+:root {
+    --primary: #173f35;
+    --secondary: #2e725b;
+    --mint: #dcefe5;
+    --background: #f3f6f4;
+    --white: #ffffff;
+    --text: #26352f;
+    --muted: #718078;
+    --border: #dce5df;
+    --accent: #e5a64b;
+}
+
+/* =================================
+   3. GENERAL STYLING
+================================= */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    color: #1f2937;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
     margin: 0;
-    padding: 24px;
+    padding: 30px;
+    line-height: 1.6;
 }
 
-/* Heading */
+ 
+/* =================================
+   4. PAGE HEADING CARD
+================================= */
 header {
+    background-color: var(--white);
     text-align: center;
-    margin-bottom: 30px;
+    padding: 30px 20px;
+    margin: 0 auto 30px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    max-width: 1100px;
+    box-shadow: 0 4px 12px rgba(23, 63, 53, 0.06);
 }
 
+/* Main heading */
 h1 {
-    color: #1e3a8a;
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary);
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
 }
 
-/* Sections */
+/* Logo */
+header img {
+    width: 65px;
+    height: 65px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+/* Header description */
+header p {
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+
+/* =================================
+   5. SECTION CARDS
+================================= */
 section {
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 25px;
-    border-radius: 8px;
+    background-color: var(--white);
+    padding: 25px;
+    margin: 0 auto 25px;
+    max-width: 1100px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(23, 63, 53, 0.05);
 }
 
-/* Form styling */
+h2 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary);
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* =================================
+   6. ADD EXPENSE FORM
+================================= */
 .add-expense-section label {
     display: block;
-    margin-top: 12px;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--primary);
 }
 
 .add-expense-section input,
 .add-expense-section select {
     width: 100%;
-    padding: 10px;
+    padding: 12px 14px;
     margin-top: 5px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: #fafcfb;
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 /* Focus selector */
 input:focus,
 select:focus {
-    outline: 2px solid #2563eb;
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 3px rgba(46, 114, 91, 0.12);
 }
 
 /* Negation pseudo-class */
 input:not([type="date"]) {
-    background-color: #fafafa;
-}
-
-/* Button */
-button {
-    background-color: #1e3a8a;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    margin-top: 15px;
-    cursor: pointer;
-}
-
-/* Button hover */
-button:hover {
-    background-color: #2563eb;
-}
-
-/* Expense table */
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
-}
-
-/* Colored header */
-thead {
-    background-color: #1e3a8a;
-    color: white;
-}
-
-/* Alternating row colors */
-tr:nth-child(even) {
-    background-color: #e8eef7;
-}
-
-/* Table row hover */
-.expenses-section tbody tr:hover {
-    background-color: #cbdcf5;
-}
-
-/* Descendant selector */
-.expenses-section td {
-    font-size: 15px;
+    background-color: #fafcfb;
 }
 
 /* Direct child selector */
@@ -107,20 +140,144 @@ tr:nth-child(even) {
     margin-top: 15px;
 }
 
-/* Details */
-details {
-    background-color: white;
-    padding: 15px;
-    margin-bottom: 25px;
+/* =================================
+   7. BUTTON STYLING
+================================= */
+button {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 12px 24px;
+    border: none;
     border-radius: 8px;
+    margin-top: 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+/* =================================
+   8. EXPENSE TABLE
+================================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th,
+td {
+    border: 1px solid var(--border);
+    padding: 14px 16px;
+    text-align: left;
+    font-size: 14px;
+}
+
+/* Table header */
+thead {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+th {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+/* Alternating row colors */
+tbody tr:nth-child(even) {
+    background-color: #edf5f0;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--white);
+}
+
+/* Table row hover */
+.expenses-section tbody tr:hover {
+    background-color: var(--mint);
+    transition: background-color 0.2s;
+}
+
+/* Descendant selector */
+.expenses-section td {
+    font-size: 14px;
+}
+
+/* =================================
+   9. DETAILS SECTION
+================================= */
+details {
+    background-color: var(--white);
+    padding: 20px;
+    margin: 0 auto 25px;
+    max-width: 1100px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
 }
 
 summary {
     cursor: pointer;
-    font-weight: bold;
-}
-.video-section iframe {
-    max-width: 100%;
-    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: var(--primary);
 }
 
+/* =================================
+   10. VIDEO SECTION
+================================= */
+.video-section iframe {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* =================================
+   11. RESPONSIVE DESIGN
+================================= */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    header {
+        padding: 22px 15px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    section {
+        padding: 18px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+      th,
+    td {
+        padding: 9px;
+    }
+
+    /* Mobile table scrolling */
+    .expenses-section {
+        overflow-x: auto;
+    }
+
+    .expenses-section table {
+        min-width: 550px;
+    }
+}
